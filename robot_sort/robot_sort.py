@@ -95,51 +95,21 @@ class SortingRobot:
         return self._light == "ON"
 
     def sort(self):
+        # light switch being off is the condition at which we stop looping. The light switch turns off when we no longer have
+        self.set_light_on()
         self.swap_item()
         self.move_right()
-        while self.can_move_right() == True:
-            if self.compare_item() == 1:
-                self.move_right()
-            else:
-                self.swap_item()
-                self.move_right()
-        while self.can_move_left() == True:
-            self.move_left()
-        return self._list
-
-        # for _ in range(0, len(self._list) - 1):
-        #     for _ in range(0, len(self._list) - 1):
-        #         self.swap_item()
-        #         self.move_right()
-        #         if self.compare_item() == 1:
-        #             self.move_right()
-        #         else:
-        #             self.swap_item()
-        #             self.move_right()
-        #         if self.can_move_right() == False:
-        #             for _ in range(len(self._list) - 1, 0, -1):
-        #                 self.move_left()
-        #         if self.can_move_left() == False:
-        #             return
-
-        # swap once
-        # move right
-        # compare
-        # swap if what i have is larger
-        # move right
-        # swap if what i have is larger
-        # move right
-        # by the end of this loop, the largest item should be at the end
-        # when position is len(arr)-1 set move right to false
-        # move all the way back to none with whatever I have, and do it again
-
-        # robot starts at position 0, which corresponds to index 0 in the list
-        # STEP 1: pick up first item by swapping self._item (initially None) with self._list[position]. self._list[0] will then == None
-        # STEP 2: Move to the right, so that self._position is 1
-        # compare self._item (which used to be in position 0) with self._list[position] (now 1). If what Robot is holding is bigger, then swap
-        # STEP 3: Move to the right and do it again, swapping or not and moving to the right. Keep moving to the right until self._position == len(list) -2 (before last item in list)
-        # STEP 4: Once we get to self._position == len(list) -2, set move_right to False.
-        # STEP 5: o
+        while self.light_is_on():
+            self.set_light_off()
+            while self.can_move_right() == True:
+                if self.compare_item() == 1:
+                    self.move_right()
+                elif self.compare_item() == -1 or self.compare_item == None:
+                    self.swap_item()
+                    self.set_light_on()
+                    self.move_right()
+            while self.can_move_left() == True:
+                self.move_left()
 
 
 if __name__ == "__main__":
@@ -182,71 +152,71 @@ if __name__ == "__main__":
         2,
         88,
         51,
-        40,
-        95,
-        6,
-        23,
-        81,
-        30,
-        19,
-        25,
-        91,
-        18,
-        68,
-        71,
-        9,
-        66,
-        1,
-        45,
-        33,
-        3,
-        72,
-        16,
-        85,
-        27,
-        59,
-        64,
-        39,
-        32,
-        24,
-        38,
-        84,
-        44,
-        80,
-        11,
-        73,
-        42,
-        20,
-        10,
-        29,
-        22,
-        98,
-        17,
-        48,
-        52,
-        67,
-        53,
-        74,
-        77,
-        37,
-        63,
-        31,
-        7,
-        75,
-        36,
-        89,
-        70,
-        34,
-        79,
-        83,
-        13,
-        57,
-        86,
-        12,
-        56,
-        50,
-        55,
-        46,
+        # 40,
+        # 95,
+        # 6,
+        # 23,
+        # 81,
+        # 30,
+        # 19,
+        # 25,
+        # 91,
+        # 18,
+        # 68,
+        # 71,
+        # 9,
+        # 66,
+        # 1,
+        # 45,
+        # 33,
+        # 3,
+        # 72,
+        # 16,
+        # 85,
+        # 27,
+        # 59,
+        # 64,
+        # 39,
+        # 32,
+        # 24,
+        # 38,
+        # 84,
+        # 44,
+        # 80,
+        # 11,
+        # 73,
+        # 42,
+        # 20,
+        # 10,
+        # 29,
+        # 22,
+        # 98,
+        # 17,
+        # 48,
+        # 52,
+        # 67,
+        # 53,
+        # 74,
+        # 77,
+        # 37,
+        # 63,
+        # 31,
+        # 7,
+        # 75,
+        # 36,
+        # 89,
+        # 70,
+        # 34,
+        # 79,
+        # 83,
+        # 13,
+        # 57,
+        # 86,
+        # 12,
+        # 56,
+        # 50,
+        # 55,
+        # 46,
     ]
 
     robot = SortingRobot(l)
