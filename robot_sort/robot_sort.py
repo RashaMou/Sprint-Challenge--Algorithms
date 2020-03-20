@@ -93,11 +93,18 @@ class SortingRobot:
         return self._light == "ON"
 
     def sort(self):
-        """
-        Sort the robot's list.
-        """
-        # Fill this out
-        pass
+        for _ in range(0, len(arr) - 1):
+
+        # robot starts at position 0, which corresponds to index 0 in the list
+        # STEP 1: pick up first item by swapping self._item (initially None) with self._list[position]. self._list[0] will then == None
+        # STEP 2: Move to the right, so that self._position is 1
+        # compare self._item (which used to be in position 0) with self._list[position] (now 1). If what Robot is holding is bigger, then swap
+        # STEP 3: Move to the right and do it again, swapping or not and moving to the right. Keep moving to the right until self._position == len(list) -2 (before last item in list)
+        # STEP 4: Once we get to self._position == len(list) -2, set move_right to False.
+        # STEP 5: o
+        
+
+
 
 
 if __name__ == "__main__":
