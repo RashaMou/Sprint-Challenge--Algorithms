@@ -93,7 +93,20 @@ class SortingRobot:
         return self._light == "ON"
 
     def sort(self):
-        for _ in range(0, len(arr) - 1):
+        for _ in range(0, len(arr) - 1): 
+            for right in range(0, len(arr)):
+            #swap once
+            #move right
+            # compare
+            #swap if what i have is larger
+            #move right
+            #swap if what i have is larger
+            #move right
+            # by the end of this loop, the largest item should be at the end
+            # when position is len(arr)-1 set move right to false
+            # move to the left and do another loops that's shorter left in range(j-1)
+            # shorten the loop
+            
 
         # robot starts at position 0, which corresponds to index 0 in the list
         # STEP 1: pick up first item by swapping self._item (initially None) with self._list[position]. self._list[0] will then == None
